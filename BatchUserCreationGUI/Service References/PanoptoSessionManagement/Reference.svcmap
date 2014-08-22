@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8984b5ad-bfff-454c-be36-a44754c63a35" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SessionManagement.xsd" MetadataType="Schema" ID="735830f7-3f7a-465f-b04a-45402ad16a67" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?xsd=xsd1" />
+    <MetadataFile FileName="SessionManagement.disco" MetadataType="Disco" ID="5ba88222-55cc-49df-86cd-076b23a3df60" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?disco" />
+    <MetadataFile FileName="SessionManagement1.xsd" MetadataType="Schema" ID="dcd97420-a91c-4393-a383-c346abb767d1" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?xsd=xsd4" />
+    <MetadataFile FileName="SessionManagement.wsdl" MetadataType="Wsdl" ID="c7f21cfd-7ade-483e-9ef6-ec2b9994a5d7" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?wsdl" />
+    <MetadataFile FileName="SessionManagement2.xsd" MetadataType="Schema" ID="1f53caa8-eb21-4123-99d8-fc67a9af9380" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?xsd=xsd0" />
+    <MetadataFile FileName="SessionManagement3.xsd" MetadataType="Schema" ID="edc0c4dd-3017-419e-9228-344e2a0cfebb" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?xsd=xsd3" />
+    <MetadataFile FileName="SessionManagement4.xsd" MetadataType="Schema" ID="594c4626-ca85-42a7-b583-cd3f7d6a28f7" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/SessionManagement.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

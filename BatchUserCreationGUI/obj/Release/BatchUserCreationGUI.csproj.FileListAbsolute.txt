@@ -1,0 +1,12 @@
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\bin\Release\BatchUserCreationGUI.exe.config
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\bin\Release\BatchUserCreationGUI.exe
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\bin\Release\BatchUserCreationGUI.pdb
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\MainWindow.baml
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\MainWindow.g.cs
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\App.g.cs
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\BatchUserCreationGUI_MarkupCompile.cache
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\BatchUserCreationGUI.g.resources
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\BatchUserCreationGUI.Properties.Resources.resources
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\BatchUserCreationGUI.csproj.GenerateResource.Cache
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\BatchUserCreationGUI.exe
+C:\Users\dliu\Documents\Visual Studio 2012\Projects\BatchUserCreationGUI\BatchUserCreationGUI\obj\Release\BatchUserCreationGUI.pdb
