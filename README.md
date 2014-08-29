@@ -12,4 +12,11 @@ Program will create users listed in the given CSV file using the given admin acc
 	File: CSV file containing new user information
 	Error Log: display error messages
 
+Due to the structure of the code, folder is created first, then users, then linking user to folder. If any part fails, previous action will still have been completed.
+
 CSV File Format: UserName,FirstName,LastName,EmailAddress
+
+Sample CSV file format:
+aaa,aa,a,aaa@foo.com
+aab,aa,b,aab@foo.com
+aac,aa,c,aac@foo.com

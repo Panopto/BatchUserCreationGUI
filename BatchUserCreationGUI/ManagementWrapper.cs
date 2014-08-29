@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BatchUserCreationGUI.PanoptoAccessManagement;
-using BatchUserCreationGUI.PanoptoUserManagement;
+﻿using BatchUserCreationGUI.PanoptoAccessManagement;
 using BatchUserCreationGUI.PanoptoSessionManagement;
+using BatchUserCreationGUI.PanoptoUserManagement;
+using System;
 
 /// <summary>
 /// Sample C# that uses the Panopto PublicAPI
@@ -16,8 +12,6 @@ namespace BatchUserCreationGUI
 
     public class ManagementWrapper
     {
-        private static string errorMessage = "";
-        private static bool hasError = false;
 
         /// <summary>
         /// Creates a new user and their folder and adds them as creator to their folder
@@ -28,57 +22,79 @@ namespace BatchUserCreationGUI
         /// <returns>String containing error message, null if no error</returns>
         public static string FullyCreateUser(string authUserKey, string authPassword, string data)
         {
-            // Set Panopto server authentication details
-            string userKey = authUserKey;
-            string password = authPassword;
-
             // Parse data
             string[] parsedData = data.Split(',');
+            string folderName;
+            string errorMessage;
+            bool hasError;
+            string tempError;
 
-            // The Id of the Panopto folder to the new user will be granted access
-            string folderName = parsedData[1] + " " + parsedData[2] + "'s Folder";
+            string userName = null;
+            string firstName = null;
+            string lastName = null;
+            string email = null;
 
-            // Setup error message
-            errorMessage = "\nUser: " + parsedData[0];
-            hasError = false;
+            if (parsedData.Length < 4)
+            {
+                folderName = null;
+                errorMessage = "\nInvalid input data: " + data;
+                hasError = true;
+            }
+            else
+            {
+                userName = parsedData[0];
+                firstName = parsedData[1];
+                lastName = parsedData[2];
+                email = parsedData[3];
+
+                // The Id of the Panopto folder to the new user will be granted access
+                folderName = firstName + " " + lastName + "'s Folder";
+
+                // Error variables
+                errorMessage = "\nUser: " + parsedData[0];
+                hasError = false;
+            }
                         
             // Permissions for user management
             PanoptoUserManagement.AuthenticationInfo userAuth = new PanoptoUserManagement.AuthenticationInfo()
             {
-                UserKey = userKey,
-                Password = password
+                UserKey = authUserKey,
+                Password = authPassword
             };
 
             // Permissions for access management
             PanoptoAccessManagement.AuthenticationInfo accessAuthInfo = new PanoptoAccessManagement.AuthenticationInfo()
             {
-                UserKey = userKey,
-                Password = password
+                UserKey = authUserKey,
+                Password = authPassword
             };
 
             // Permissions for session management
             PanoptoSessionManagement.AuthenticationInfo sessionAuthInfo = new PanoptoSessionManagement.AuthenticationInfo()
             {
-                UserKey = userKey,
-                Password = password
+                UserKey = authUserKey,
+                Password = authPassword
             };
 
             Guid panoptoFolderId = Guid.Empty;
 
-            if (!String.IsNullOrWhiteSpace(folderName))
+            if (!hasError && !String.IsNullOrWhiteSpace(folderName))
             {
-                panoptoFolderId = CreateFolder(sessionAuthInfo, folderName);
+                panoptoFolderId = CreateFolder(sessionAuthInfo, folderName, out hasError, out tempError);
+                errorMessage += tempError;
             }
 
-            if (panoptoFolderId != Guid.Empty)
+            if (!hasError && panoptoFolderId != Guid.Empty)
             {
                 // Creates a new user
-                Guid idUser = CreateUser(userAuth, parsedData[0], parsedData[1], parsedData[2], parsedData[3]);
+                Guid idUser = CreateUser(userAuth, userName, firstName, lastName, email, out hasError, out tempError);
+                errorMessage += tempError;
 
                 // Sets creator privilege to the created group over the folder
-                if (idUser != Guid.Empty)
+                if (!hasError && idUser != Guid.Empty)
                 {
-                    SetPrivilegesForFolder(accessAuthInfo, panoptoFolderId, idUser, AccessRole.Creator);
+                    SetPrivilegesForFolder(accessAuthInfo, panoptoFolderId, idUser, AccessRole.Creator, out hasError, out tempError);
+                    errorMessage += tempError;
                 }
             }
 
@@ -99,8 +115,10 @@ namespace BatchUserCreationGUI
         /// <param name="auth">Authorization token</param>
         /// <param name="folderName">folder name</param>
         /// <returns>Guid of folder created</returns>
-        private static Guid CreateFolder(PanoptoSessionManagement.AuthenticationInfo auth, string folderName)
+        private static Guid CreateFolder(PanoptoSessionManagement.AuthenticationInfo auth, string folderName, out bool hasError, out string errorMessage)
         {
+            hasError = false;
+            errorMessage = "";
             Guid folderId = Guid.Empty;
             ISessionManagement sessionMgmt = new SessionManagementClient();
 
@@ -127,48 +145,58 @@ namespace BatchUserCreationGUI
         /// <param name="lastName">User last name.</param>
         /// <param name="email">User email.</param>
         /// <returns>Guid associated to the created user.</returns>
-        private static Guid CreateUser(PanoptoUserManagement.AuthenticationInfo userAuth, string userKey, string firstName, string lastName, string email)
+        private static Guid CreateUser(PanoptoUserManagement.AuthenticationInfo userAuth, string userKey, string firstName, string lastName, string email, out bool hasError, out string errorMessage)
         {
             Guid userID = Guid.Empty;
+            hasError = false;
+            errorMessage = "";
             IUserManagement userMgr = new UserManagementClient();
             
             try
-            {   
-                // Tries to get the user by key
-                User panUser = userMgr.GetUserByKey(userAuth, userKey);
-                
-                //Checks if the user exist
-                if (panUser != null && !panUser.UserId.Equals(Guid.Empty))
+            {
+                if (String.IsNullOrWhiteSpace(userKey))
                 {
-                    userID = panUser.UserId;
-                    errorMessage += "\n\tThe user " + userID.ToString() + " already exists";
                     hasError = true;
+                    errorMessage += "\n\tInvalid user name";
                 }
                 else
                 {
-                    // Checks new user data
-                    if (String.IsNullOrEmpty(firstName) || String.IsNullOrEmpty(lastName) ||
-                        String.IsNullOrEmpty(email))
+                    // Tries to get the user by key
+                    User panUser = userMgr.GetUserByKey(userAuth, userKey);
+
+                    //Checks if the user exist
+                    if (panUser != null && !panUser.UserId.Equals(Guid.Empty))
                     {
-                        errorMessage += "\n\t" + userKey + "doesn't have enough details to make a user account";
+                        userID = panUser.UserId;
+                        errorMessage += "\n\tThe user " + userID.ToString() + " already exists";
                         hasError = true;
                     }
                     else
                     {
-                        // Creates a new user
-                        panUser = new User()
+                        // Checks new user data
+                        if (String.IsNullOrWhiteSpace(firstName) || String.IsNullOrWhiteSpace(lastName) ||
+                            String.IsNullOrWhiteSpace(email))
                         {
-                            UserKey = userKey,
-                            FirstName = firstName,
-                            LastName = lastName,
-                            SystemRole = BatchUserCreationGUI.PanoptoUserManagement.SystemRole.None,
-                            UserBio = String.Empty,
-                            Email = email,
-                            EmailSessionNotifications = false
-                        };
+                            errorMessage += "\n\t" + userKey + " doesn't have enough details to make a user account";
+                            hasError = true;
+                        }
+                        else
+                        {
+                            // Creates a new user
+                            panUser = new User()
+                            {
+                                UserKey = userKey,
+                                FirstName = firstName,
+                                LastName = lastName,
+                                SystemRole = BatchUserCreationGUI.PanoptoUserManagement.SystemRole.None,
+                                UserBio = String.Empty,
+                                Email = email,
+                                EmailSessionNotifications = false
+                            };
 
-                        // Creates the user in Panopto Server
-                        userID = userMgr.CreateUser(userAuth, panUser, String.Empty);
+                            // Creates the user in Panopto Server
+                            userID = userMgr.CreateUser(userAuth, panUser, String.Empty);
+                        }
                     }
                 }
             }
@@ -188,8 +216,10 @@ namespace BatchUserCreationGUI
         /// <param name="folderId">Folder Guid.</param>
         /// <param name="userId">User Guid.</param>
         /// <param name="accessRole">Access role type.</param>
-        private static void SetPrivilegesForFolder(PanoptoAccessManagement.AuthenticationInfo accessAuthInfo, Guid folderId, Guid userId, AccessRole accessRole)
+        private static void SetPrivilegesForFolder(PanoptoAccessManagement.AuthenticationInfo accessAuthInfo, Guid folderId, Guid userId, AccessRole accessRole, out bool hasError, out string errorMessage)
         {
+            hasError = false;
+            errorMessage = "";
             IAccessManagement accessMgr = new AccessManagementClient();
 
             try
