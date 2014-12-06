@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPI/4.2/UserManagement.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPI/4.6/UserManagement.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserManagement.xsd" MetadataType="Schema" ID="bb432e63-6611-40e2-b742-a54254d04ede" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/UserManagement.svc?xsd=xsd3" />
-    <MetadataFile FileName="UserManagement1.xsd" MetadataType="Schema" ID="2763d03a-232f-49e8-8aae-70d45d6350f8" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/UserManagement.svc?xsd=xsd0" />
-    <MetadataFile FileName="UserManagement.wsdl" MetadataType="Wsdl" ID="e3c34513-3a04-410e-8981-cb6d4b078893" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPI/4.2/UserManagement.svc?wsdl" />
-    <MetadataFile FileName="UserManagement2.xsd" MetadataType="Schema" ID="59baaaa2-c759-4b51-8a8f-15ff6e68c06b" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/UserManagement.svc?xsd=xsd2" />
-    <MetadataFile FileName="UserManagement3.xsd" MetadataType="Schema" ID="eebe362a-97ca-4ec8-bcba-489e988438ce" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/UserManagement.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserManagement1.wsdl" MetadataType="Wsdl" ID="a74e0ea8-1c2c-4f1b-9608-849285202553" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPI/4.6/UserManagement.svc?wsdl" />
+    <MetadataFile FileName="UserManagement4.xsd" MetadataType="Schema" ID="636119b1-6785-472a-a79a-42d863ed9552" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/UserManagement.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserManagement41.xsd" MetadataType="Schema" ID="2efe332c-4ec7-47c1-be7f-10568af005fe" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/UserManagement.svc?xsd=xsd3" />
+    <MetadataFile FileName="UserManagement42.xsd" MetadataType="Schema" ID="506a6347-fd78-4733-80f1-1bc942ce95df" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/UserManagement.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserManagement43.xsd" MetadataType="Schema" ID="5d5b5a78-d9c6-4f6a-a566-3bbb55645078" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/UserManagement.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

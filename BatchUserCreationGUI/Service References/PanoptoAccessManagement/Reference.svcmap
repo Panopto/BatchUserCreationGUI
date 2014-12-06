@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPI/4.2/AccessManagement.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://testing.panopto.com/Panopto/PublicAPI/4.6/AccessManagement.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AccessManagement.xsd" MetadataType="Schema" ID="cb561083-9467-4341-a2fa-55efc1e7a69b" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/AccessManagement.svc?xsd=xsd2" />
-    <MetadataFile FileName="AccessManagement1.xsd" MetadataType="Schema" ID="cffdbc5f-4985-4cc5-9131-5128c0e3b54a" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/AccessManagement.svc?xsd=xsd3" />
-    <MetadataFile FileName="AccessManagement2.xsd" MetadataType="Schema" ID="85a5f23b-a22f-482f-b986-fcf4ea7c749f" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/AccessManagement.svc?xsd=xsd0" />
-    <MetadataFile FileName="AccessManagement3.xsd" MetadataType="Schema" ID="10a49162-9919-463c-932b-f6f59c5bd5c3" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.2/AccessManagement.svc?xsd=xsd1" />
-    <MetadataFile FileName="AccessManagement.wsdl" MetadataType="Wsdl" ID="bdb8a5eb-0bdf-4067-a58f-2d7875c33d75" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPI/4.2/AccessManagement.svc?wsdl" />
+    <MetadataFile FileName="AccessManagement4.xsd" MetadataType="Schema" ID="b9c99bb8-b8ad-4e67-9f0e-97da5678b9fd" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/AccessManagement.svc?xsd=xsd2" />
+    <MetadataFile FileName="AccessManagement41.xsd" MetadataType="Schema" ID="ab102ea3-efdb-4702-8ee8-ff76efef5612" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/AccessManagement.svc?xsd=xsd3" />
+    <MetadataFile FileName="AccessManagement42.xsd" MetadataType="Schema" ID="8f04751f-c650-4d27-95e4-7ad81d90b85e" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/AccessManagement.svc?xsd=xsd0" />
+    <MetadataFile FileName="AccessManagement43.xsd" MetadataType="Schema" ID="c2209ba5-856a-44c8-8f25-04844eb12b0d" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPISSL/4.6/AccessManagement.svc?xsd=xsd1" />
+    <MetadataFile FileName="AccessManagement1.wsdl" MetadataType="Wsdl" ID="35e135d2-a3bc-4d19-9b03-f8f6809252b5" SourceId="1" SourceUrl="https://testing.panopto.com/Panopto/PublicAPI/4.6/AccessManagement.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
